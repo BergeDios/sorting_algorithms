@@ -25,10 +25,10 @@ void selection_sort(int *array, size_t size)
 		}
 		swap2 = array[pos];
 		if (pos_swap == 0)
-			pos_swap = pos;
+			continue;
 		array[pos] = min;
 		array[pos_swap] = swap2;
-		if (pos != pos_swap)
-			print_array(array, size);
+		print_array(array, size);
+		pos_swap = 0;
 	}
 }
