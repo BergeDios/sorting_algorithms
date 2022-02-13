@@ -16,7 +16,7 @@ void bubble_sort(int *array, size_t size)
 	{
 		for (comparer = 0; comparer < (size - 1); comparer++)
 		{
-			if(array[comparer] > array[comparer + 1])
+			if (array[comparer] > array[comparer + 1])
 			{
 				swaper = array[comparer];
 				swaper2 = array[comparer + 1];
@@ -25,6 +25,6 @@ void bubble_sort(int *array, size_t size)
 				print_array(array, size);
 			}
 		}
-			
+
 	}
 }
