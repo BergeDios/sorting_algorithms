@@ -1,6 +1,6 @@
 #include "sort.h"
-#include "string.h"
-#include "stdio.h"
+#include <stdlib.h>
+
 /**
  * counting_sort - sorts array using counting sort algorithm
  * @array: pointer to array
@@ -13,7 +13,7 @@ void counting_sort(int *array, size_t size)
 	size_t i;
 	char *output;
 
-	if(!array || size < 2)
+	if (!array || size < 2)
 		return;
 	for (i = 0; i < size; i++)
 	{
@@ -23,7 +23,8 @@ void counting_sort(int *array, size_t size)
 	count = malloc(sizeof(int) * (k + 1));
 	if (!count)
 		return;
-	memset(count, 0, sizeof(k + 1));
+	for (j = 0; j < k; j++)
+		count[j] = 0;
 	/*counting numbers and adding 1 to their valueposition/ setting count*/
 	for (i = 0; i < size; i++)
 		count[array[i]] += 1;
