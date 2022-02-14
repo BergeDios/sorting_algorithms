@@ -24,11 +24,10 @@ void shell_sort(int *array, size_t size)
 				array[j] = array[j - n];
 				j -= n;
 			}
-			if (j != i)
-				array[j] = tmp;
-			print_array(array, size);
+			array[j] = tmp;
 
 		}
+		print_array(array, size);
 		n = (n - 1) / 3;
 	}
 
