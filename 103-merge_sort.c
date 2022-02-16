@@ -2,7 +2,7 @@
 #include "stdio.h"
 
 /**
- * TDmerge - recursive to sort arrays?
+ * merger - recursive to sort arrays?
  * @array: pointer to array
  * @min: min pos of array
  * @max: max of array
@@ -10,7 +10,7 @@
  */
 void merger(int *array, int min, int max)
 {
-	int tmp [1024];
+	int tmp[1024];
 	int mid = 0, posi = min, posm = 0, posk = 0;
 
 	mid = (min + max) / 2;
@@ -22,7 +22,7 @@ void merger(int *array, int min, int max)
 		{
 			tmp[posk] = array[posi];
 			posk++, posi++;
-			
+
 		}
 		else
 		{
@@ -53,37 +53,15 @@ void merger(int *array, int min, int max)
 void TDmerge(int *array, int min, int max)
 {
 	int mid = 0;
-	
-	/*if ((max - min) < 2)
-	{
-		printf("\033[0;31mno recursion por min = max\n\033[0;37m");
-		return;
-	}*/
 
 	if ((max - min) > 2)
 	{
 		mid = (min + max) / 2;
-		printf("entering recursion, min = %d, max = %d, mid = %d\n",  array[min], array[max], array[mid]);
-		if (1)
-		{
-			printf("entered recursion por la izquerda\n");
-			TDmerge(array, min, mid);
-		}
-		if (1)
-		{
-			printf("entered recursion por la derecha\n");
-			TDmerge(array, mid, max);
-
-		}
+		TDmerge(array, min, mid);
+		TDmerge(array, mid, max);
 		merger(array, min, max);
 		return;
 	}
-	else
-	{
-		printf("no recursion needed\n");
-		return;
-	}
-	
 }
 /**
  * merge_sort - sorts array using merge sort algorithm
