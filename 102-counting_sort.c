@@ -8,18 +8,20 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int *count, j,  k = array[0];
-	size_t i;
-	char *output;
+	int *count, j = 0, k = 0;
+	size_t i = 0;
+	int *output;
 
+	count = NULL; output = NULL;
 	if (!array || !*array || size < 2)
 		return;
+	k = array[0];
 	for (i = 0; i < size; i++)
 	{
 		if (array[i] > k)
 			k = array[i];
 	}
-	count = malloc(sizeof(int) * (k + 1));
+	count = malloc(((k + 1) * 4));
 	if (!count)
 		return;
 	for (j = 0; j < k; j++)
@@ -29,11 +31,11 @@ void counting_sort(int *array, size_t size)
 		count[array[i]] += 1;
 
 	/*add summed positions to get actual position value*/
-	for (j = 0; j <= k; j++)
+	for (j = 1; j <= k; j++)
 		count[j] += count[j - 1];
 	print_array(count, (k + 1));
 
-	output = malloc(sizeof(char) * (size));
+	output = malloc(sizeof(int) * (size));
 	if (!output)
 	{
 		free(count);
